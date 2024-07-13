@@ -7,6 +7,13 @@ class AuthenticationView(APIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
 
+    """
+    get:
+    Retorna uma mensagem de exemplo.
+
+    post:
+    Cria uma nova mensagem de exemplo.
+    """
     def get(self, request):
         content = {'message': 'Hello, World!'}
         return Response(content)
