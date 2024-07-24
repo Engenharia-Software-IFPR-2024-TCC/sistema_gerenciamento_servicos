@@ -5,7 +5,7 @@ from authentication.api.views import AutenticacaoView
 
 
 router = DefaultRouter()
-router.register(r'auth', AutenticacaoView, basename='autenticacao')
+router.register(r'', AutenticacaoView, basename='autenticacao')
 
 urlpatterns = [
     path('', include(router.urls)),
