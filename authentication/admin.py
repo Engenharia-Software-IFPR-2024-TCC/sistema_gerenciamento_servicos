@@ -1,15 +1,22 @@
 from django.contrib import admin
-from .models import Role, Usuario, UsuarioRole
+from .models import Role, Usuario, UsuarioRole, Perfil
 
 
 @admin.register(Role)
 class RoleAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome', 'descricao')
+    
+
+@admin.register(Perfil)
+class PerfilAdmin(admin.ModelAdmin):
+    list_display = ('id', 'rua', 'numero', 'cep', 'cidade', 'estado')
+
 
 @admin.register(Usuario)
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = ('id', 'email', 'nome', 'criado_em', 'cpf', 'senha')
     readonly_fields = ('id', 'criado_em')
+
 
 @admin.register(UsuarioRole)
 class UsuarioRoleAdmin(admin.ModelAdmin):

@@ -11,6 +11,18 @@ class Role(models.Model):
         return self.nome
 
 
+class Perfil(models.Model):
+    rua = models.CharField(max_length=255)
+    numero = models.CharField(max_length=6)
+    cep = models.CharField(max_length=10)
+    estado = models.CharField(max_length=100)
+    cidade = models.CharField(max_length=120)
+    foto_perfil = models.TextField()
+    
+    def __str__(self):
+        return f"{self.rua}, {self.numero}, {self.cep}, {self.cidade} - {self.estado}"
+    
+
 class Usuario(models.Model):
     id = models.UUIDField(
             primary_key=True,
@@ -25,6 +37,9 @@ class Usuario(models.Model):
     criado_em = models.DateTimeField(auto_now_add=True)
     cpf = models.CharField(max_length=11, unique=True)
     roles = models.ManyToManyField(Role, through='UsuarioRole')
+    perfil = models.ForeignKey(
+        Perfil, on_delete=models.SET_NULL, null=True, blank=True
+    )
 
     def __str__(self):
         return self.email
