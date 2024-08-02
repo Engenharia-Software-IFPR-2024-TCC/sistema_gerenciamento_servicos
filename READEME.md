@@ -9,9 +9,7 @@ o comando `python -m venv venv` ou `python3 -m venv venv`.
 Após a criação da venv será necessário ativá-la.
 
 # Ativar Venv Windows
-Acessar a pasta `\venv\Scripts`
-Depois digitar o comando `.\activate`
-Depois retornar a pasta raiz `cd ../..`
+Executar activate da venv `.\venv\Scripts\activate`
 
 # Ativar Venv Linux e MacOS
 Dar o comando no terminal `source venv/bin/activate`
